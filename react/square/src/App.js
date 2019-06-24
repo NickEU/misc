@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div>
-          <Square isHidden={true} size={50}/>
+          <Square isHidden={true} size={60}/>
           <Square initialColor={"blue"} size={80}/>
           <Square initialColor={"green"} size={100}/>
         </div>        

@@ -31,12 +31,8 @@ function createStore(reducer, initialState) {
 
 function reducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
-<<<<<<< HEAD
-    if (action.message == '') {
-=======
     if (action.message === '') {
->>>>>>> added binary tree height and callback refs
-        return state;
+      return state;
     }
     return {
       ...state,

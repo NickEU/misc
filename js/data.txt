@@ -1,0 +1,6 @@
+Mark Price toaster 80 2
+Mark Price blender 200 1
+Mark Price knife 10 4
+Nikita Smith toaster 80 1
+Nikita Smith knife 10 2
+Nikita Smith pot 20 3

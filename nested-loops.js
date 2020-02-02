@@ -6,7 +6,7 @@
 // Nested loops
 // First we'll consider loops where the number of iterations of the inner loop is
 // independent of the value of the outer loop's index. For example:
-function test(N, M) {
+function badMultiplication(N, M) {
   let result = 0;
   for (let i = 0; i < N; i++) {
     for (let j = 0; j < M; j++) {
@@ -17,8 +17,8 @@ function test(N, M) {
   return result;
 }
 
-console.log(test(5, 10));
-console.log(test(100000, 1));
+console.log(badMultiplication(5, 10));
+console.log(badMultiplication(100000, 1));
 
 // The outer loop executes N times. Every time the outer loop executes, the inner loop executes M times.
 // As a result, the statements in the inner loop execute a total of N * M times.

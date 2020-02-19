@@ -1,0 +1,32 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "wooordHunt",
+  "description": "Позволяет быстро переводить слова используя сервис WooordHunt",
+  "version": "1.1",
+  "permissions": ["<all_urls>"],
+  "browser_action": {
+    "default_title": "Translate",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+0"
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["\u003Call_urls>"],
+      "js": ["content_script.js"]
+    }
+  ]
+}

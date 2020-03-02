@@ -19,9 +19,9 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
   sendResponse(responseObject);
 });
 
-chrome.browserAction.onClicked.addListener(function(tab) {
-  console.log("test");
-});
+// chrome.browserAction.onClicked.addListener(function(tab) {
+//   console.log("test");
+// });
 
 document.addEventListener("DOMContentLoaded", addListen, false);
 

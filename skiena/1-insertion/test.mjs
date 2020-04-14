@@ -1,14 +1,14 @@
 import sortArray from './insertion.mjs';
 
-runTestSuite();
+const testCases = [
+  ['9115651994372122', '1111222345567999'],
+  ['insertionsort', 'eiinnoorrsstt'],
+  ['654321', '123456'],
+];
 
-function runTestSuite() {
-  const testCases = [
-    ['9115651994372122', '1111222345567999'],
-    ['insertionsort', 'eiinnoorrsstt'],
-    ['654321', '123456'],
-  ];
+runTestSuite(testCases);
 
+function runTestSuite(testCases) {
   const testResults = testCases.map((test, i) =>
     runTest(i + 1, test[0], test[1])
   );

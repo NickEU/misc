@@ -9,19 +9,26 @@ const testCases = [
 runTestSuite(testCases);
 
 function runTestSuite(testCases) {
-  const testResults = testCases.map((test, i) =>
-    runTest(i + 1, test[0], test[1])
-  );
+  let allTestsPassed = true;
 
-  if (!testResults.some((result) => !result)) {
+  testCases.forEach((test, i) => {
+    if (!runTest(i + 1, test[0], test[1])) {
+      allTestsPassed = false;
+    }
+  });
+
+  if (allTestsPassed) {
     console.log('All tests have passed!');
   }
 }
 
 function runTest(testNumber, input, expectedOutput) {
   console.log(`Running test #${testNumber}:`);
+  console.log(`Input: ${input}`);
 
   const actualOutput = sortArray(input);
+
+  console.log(`Expected = ${expectedOutput}\nActual = ${actualOutput}`);
   const isTestSuccesful = actualOutput == expectedOutput;
 
   console.log(`Test #${testNumber} has`, isTestSuccesful ? 'passed' : 'failed');

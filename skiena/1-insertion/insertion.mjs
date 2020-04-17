@@ -1,27 +1,33 @@
-function sortString(str) {
-  console.log(`Input: ${str}`);
-  let result = sortArray(str.split(''));
-  console.log(`Output: ${result}`);
-}
+import runTestSuite from './test.mjs';
 
-function sortArray(arr) {
-  let result = [arr[0]];
-  for (let i = 1; i < arr.length; i++) {
+const testCases = [
+  ['9115651994372122', '1111222345567999'],
+  ['insertionsort', 'eiinnoorrsstt'],
+  ['654321', '123456'],
+];
+
+runTestSuite(testCases, sortString);
+// inplace sorting
+function sortString(str) {
+  let result = str.split('');
+  for (let i = 1; i < result.length; i++) {
     let j = i - 1;
     while (j >= 0) {
-      //console.log(`j = ${j}, ${result}`);
-      //console.log(result[j], arr[i]);
-      if (result[j] <= arr[i]) {
-        result.splice(j + 1, 0, arr[i]);
-        //console.log(`inserted ${arr[i]} = ${result}`);
+      if (result[i] >= result[j]) {
+        relocateElInsideArray(result, i, j + 1);
         break;
-      } else if (j == 0) {
-        result.unshift(arr[i]);
+      } else if (j === 0) {
+        relocateElInsideArray(result, i, j);
       }
       j--;
     }
   }
+
   return result.join('');
 }
 
-export default sortArray;
+function relocateElInsideArray(arr, sourceIndex, targetIndex) {
+  let elInserted = arr[sourceIndex];
+  arr.splice(sourceIndex, 1);
+  arr.splice(targetIndex, 0, elInserted);
+}

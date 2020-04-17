@@ -1,13 +1,3 @@
-import sortArray from './insertion.mjs';
-
-const testCases = [
-  ['9115651994372122', '1111222345567999'],
-  ['insertionsort', 'eiinnoorrsstt'],
-  ['654321', '123456'],
-];
-
-runTestSuite(testCases, sortArray);
-
 function runTestSuite(testCases, funcBeingTested) {
   console.log(`\nTesting ${funcBeingTested.name}:`);
   let allTestsPassed = true;
@@ -42,3 +32,5 @@ function runTest(testNumber, input, expectedOutput, funcBeingTested) {
 
   return isTestSuccessful;
 }
+
+export default runTestSuite;

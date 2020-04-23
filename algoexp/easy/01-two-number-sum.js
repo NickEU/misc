@@ -1,13 +1,11 @@
-"use strict";
+'use strict';
 
 // O(N*logN) Time O(1) Space
 function twoNumbersExist(arr, targetSum) {
-  let sortedArr = arr.sort((a, b) => a - b);
+  const sortedArr = arr.sort((a, b) => a - b);
   console.log(sortedArr, targetSum);
-  for (let i = 0, j = sortedArr.length - 1; j > i; ) {
-    //console.log(i, j);
-    let tempSum = sortedArr[i] + sortedArr[j];
-    //console.log(tempSum);
+  for (let i = 0, j = sortedArr.length - 1; j > i;) {
+    const tempSum = sortedArr[i] + sortedArr[j];
     if (tempSum === targetSum) {
       return true;
     } else if (tempSum > targetSum) {
@@ -19,8 +17,8 @@ function twoNumbersExist(arr, targetSum) {
   return false;
 }
 
-let arr1 = [5, 6, 25, 3, 7];
-let arr2 = [-4, 15, 36, 3, -6, 0, 17, 25];
+const arr1 = [5, 6, 25, 3, 7];
+const arr2 = [-4, 15, 36, 3, -6, 0, 17, 25];
 
 console.log(twoNumbersExist(arr1, 13)); // true
 console.log(twoNumbersExist(arr1, 28)); // true

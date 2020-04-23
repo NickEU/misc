@@ -9,6 +9,7 @@
 // The task is to find an integer having minimum absolute difference
 // with given target value K and return this difference.
 
+// another version, looks messy but uses O(1) space
 const findClosestValue = (BST, target) => {
   let minDifference = Infinity;
   for (let i = 0; i < BST.length; i += 2) {
@@ -18,9 +19,11 @@ const findClosestValue = (BST, target) => {
     let number = BST[i];
     if (BST[i + 1] !== ' ') {
       do {
-
         i++;
         number += BST[i];
+        if (i >= BST.length) {
+          break;
+        }
       } while (BST[i + 1] !== ' ');
     }
     const newDifference = target - number;

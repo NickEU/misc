@@ -17,14 +17,12 @@ const findClosestValue = (BST, target) => {
       continue;
     }
     let number = BST[i];
-    if (BST[i + 1] !== ' ') {
-      do {
-        i++;
-        number += BST[i];
-        if (i >= BST.length) {
-          break;
-        }
-      } while (BST[i + 1] !== ' ');
+    while (BST[i + 1] !== ' ') {
+      i++;
+      number += BST[i];
+      if (i >= BST.length) {
+        break;
+      }
     }
     const newDifference = Math.abs(target - number);
     if (newDifference === 0) {

@@ -26,7 +26,7 @@ const findClosestValue = (BST, target) => {
         }
       } while (BST[i + 1] !== ' ');
     }
-    const newDifference = target - number;
+    const newDifference = Math.abs(target - number);
     if (newDifference === 0) {
       return 0;
     }
@@ -42,3 +42,6 @@ console.log(findClosestValue(tree1, 13));
 
 const tree2 = '8 1 9 N 4 N 10 3';
 console.log(findClosestValue(tree2, 9));
+
+const tree3 = '8 1 6 N 4 N 15 3';
+console.log(findClosestValue(tree3, 14));

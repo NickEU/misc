@@ -18,7 +18,6 @@ const findMaxSum = (arr, k) => {
   for (let rightIdx = 0; rightIdx < arr.length; rightIdx++) {
     tempSum += arr[rightIdx];
     if (rightIdx >= k - 1) {
-      console.log(tempSum);
       maxSum = Math.max(maxSum, tempSum);
       tempSum -= arr[leftIdx];
       leftIdx++;
@@ -28,5 +27,8 @@ const findMaxSum = (arr, k) => {
   return maxSum;
 };
 
+exports.findMaxSum = findMaxSum;
+
 console.log(findMaxSum([2, 1, 5, 1, 3, 2], 3) === 9);
 console.log(findMaxSum([2, 3, 4, 1, 5], 2) === 7);
+

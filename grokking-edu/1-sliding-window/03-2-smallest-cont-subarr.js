@@ -13,17 +13,14 @@ const findSmallestSubarray = (arr, targetSum) => {
   while (leftIdx < arr.length) {
     if (tempSum >= targetSum) {
       minLen = Math.min(minLen, rightIdx - leftIdx);
-    } else {
-      if (rightIdx < arr.length) {
-        tempSum += arr[rightIdx];
-      } else {
-        break;
-      }
+      tempSum -= arr[leftIdx];
+      leftIdx++;
+    } else if (rightIdx < arr.length) {
+      tempSum += arr[rightIdx];
       rightIdx++;
-      continue;
+    } else {
+      break;
     }
-    tempSum -= arr[leftIdx];
-    leftIdx++;
   }
   return minLen === Infinity ? 0 : minLen;
 };

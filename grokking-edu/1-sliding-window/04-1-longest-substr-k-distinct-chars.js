@@ -10,21 +10,21 @@ const findLongestSubstr = (inputStr, k) => {
     currDistinctCharCount = 0;
   for (let leftIdx = 0,
     rightIdx = 0; rightIdx < inputStr.length; rightIdx++) {
-    const currChar = inputStr[rightIdx];
-    if (!charCountDict[currChar]) {
-      charCountDict[currChar] = 1;
+    const incomingChar = inputStr[rightIdx];
+    if (!charCountDict[incomingChar]) {
+      charCountDict[incomingChar] = 1;
       currDistinctCharCount++;
     } else {
-      charCountDict[currChar]++;
+      charCountDict[incomingChar]++;
     }
 
     while (currDistinctCharCount > k) {
       const subtractChar = inputStr[leftIdx];
-      if (charCountDict[subtractChar] === 1) {
-        currDistinctCharCount--;
-      }
       leftIdx++;
       charCountDict[subtractChar]--;
+      if (charCountDict[subtractChar] === 0) {
+        currDistinctCharCount--;
+      }
     }
 
     maxSubStrLen = Math.max(maxSubStrLen, rightIdx - leftIdx + 1);

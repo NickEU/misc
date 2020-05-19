@@ -1,3 +1,4 @@
+// blocks execution, use for debugging purposes only
 function sleep(milliseconds) {
     const date = Date.now();
     let currentDate = null;

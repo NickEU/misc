@@ -1,3 +1,8 @@
+function getRandomInt(min, max) {
+    // inclusive: min <= result <= max
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const quickSort = (arr) => {
     if(arr.length < 2) {
         return arr;
@@ -5,11 +10,15 @@ const quickSort = (arr) => {
     if (arr.length === 2) {
         return arr[0] > arr[1] ? [arr[1], arr[0]] : arr;
     }
-    const pivot = arr[0],
+    const pivotIdx = getRandomInt(0, arr.length - 1);
+    const pivot = arr[pivotIdx],
         smallerThanPivot = [],
         largerThanPivot = [];
     
-    for(let i = 1; i < arr.length; i++) {
+    for(let i = 0; i < arr.length; i++) {
+        if (i === pivotIdx) {
+            continue;
+        }
         const currEl = arr[i];
         if (currEl <= pivot) {
             smallerThanPivot.push(currEl);
